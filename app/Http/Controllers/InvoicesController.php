@@ -20,6 +20,7 @@ class InvoicesController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
+                "id" => "required|exists:invoices,id",
                 "customer_id" => "required",
                 "issue_date" => "required|date",
                 "due_date" => "required|date",
@@ -40,7 +41,7 @@ class InvoicesController extends Controller
     {
         $validator = Validator::make(
             $request->all(),
-            [
+            [   "id" => "required|exists:invoices,id",
                 "customer_id" => "required",
                 "issue_date" => "required|date",
                 "due_date" => "required|date",
@@ -54,22 +55,21 @@ class InvoicesController extends Controller
         }
         $invoices = Invoices::find($request->id);
 
-        $invoices->invoice_id = $request['invoice_id'];
-        $invoices->description = $request['description'];
-        $invoices->quantity = $request['quantity'];
-        $invoices->amount = $request['amount'];
+        $invoices->customer_id = $request['customer_id'];
+        $invoices->issue_date = $request['issue_date'];
+        $invoices->due_date = $request['due_date'];
 
         $invoices->save();
         return response()->json($invoices, 200);
     }
 
-    public function destoryInvoices(Request $request, $id)
+    public function delteInvoices(Request $request, $id)
     {
         //this is the validation functions
         $validator = Validator::make(
             ["id" => $id],
             [
-                "id" => "required|integer|exists:invoices"
+                "id" => "required|exists:invoices"
             ]
         );
 
@@ -93,7 +93,7 @@ class InvoicesController extends Controller
         $validator = Validator::make(
             ["id" => $id],
             [
-                "id" => "required|integer|exists:customer"
+                "id" => "required|exists:customer"
             ]
         );
 
