@@ -20,10 +20,11 @@ class InvoicesController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                "id" => "required|exists:invoices,id",
-                "customer_id" => "required",
+                "customer_id" => "required|exists:customers,id",
                 "issue_date" => "required|date",
                 "due_date" => "required|date",
+                "id" => "required|unique:invoices,id",
+
             ]
         );
         if ($validator->fails()) {
@@ -41,10 +42,11 @@ class InvoicesController extends Controller
     {
         $validator = Validator::make(
             $request->all(),
-            [   "id" => "required|exists:invoices,id",
-                "customer_id" => "required",
+            [
+                "customer_id" => "required|exists:customers,id",
                 "issue_date" => "required|date",
                 "due_date" => "required|date",
+                "id" => "required|unique:invoices,id",
             ]
         );
         if ($validator->fails()) {

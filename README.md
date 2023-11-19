@@ -118,6 +118,8 @@ due_date = 2023-11-20
 
 customer_id = 1
 
+id = 1
+
 
 ## How to get all Invoices
 
@@ -144,6 +146,8 @@ issue_date = 2023-11-04
 due_date = 2023-11-20
 
 customer_id = 1
+
+id = 1
 
 
 ## How to delete Invoices
