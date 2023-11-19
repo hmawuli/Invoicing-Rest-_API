@@ -150,6 +150,7 @@ customer_id = 1
 id = 1
 
 
+
 ## How to delete Invoices
 
 Route: localhost:8000/api/invoices/1
