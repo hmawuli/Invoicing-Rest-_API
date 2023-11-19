@@ -21,7 +21,7 @@ class CustomerController extends Controller
             $request->all(),
             [
                 "name" => "required",
-                "email" => "required|unique",
+                "email" => "required",
                 "phone" => "string|nullable",
                 "address" => "string|nullable"
             ]
@@ -42,7 +42,7 @@ class CustomerController extends Controller
             $request->all(),
             [
                 "name" => "required",
-                "email" => "required|unique",
+                "email" => "required",
                 "phone" => "string|nullable",
                 "address" => "string|nullable"
             ]

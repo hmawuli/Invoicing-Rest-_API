@@ -20,10 +20,9 @@ class InvoicesController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                "customer_id" => "required|exists:customers,id",
+                "customer_id" => "required|exists:customer,id",
                 "issue_date" => "required|date",
                 "due_date" => "required|date",
-                "id" => "required|unique:invoices,id",
 
             ]
         );
@@ -43,10 +42,9 @@ class InvoicesController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                "customer_id" => "required|exists:customers,id",
+                "customer_id" => "required|exists:customer,id",
                 "issue_date" => "required|date",
                 "due_date" => "required|date",
-                "id" => "required|unique:invoices,id",
             ]
         );
         if ($validator->fails()) {
@@ -65,13 +63,13 @@ class InvoicesController extends Controller
         return response()->json($invoices, 200);
     }
 
-    public function delteInvoices(Request $request, $id)
+    public function deleteInvoices(Request $request, $id)
     {
         //this is the validation functions
         $validator = Validator::make(
             ["id" => $id],
             [
-                "id" => "required|exists:invoices"
+                "id" => "required|exists:customer"
             ]
         );
 

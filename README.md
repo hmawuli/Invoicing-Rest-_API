@@ -118,7 +118,6 @@ due_date = 2023-11-20
 
 customer_id = 1
 
-id = 1
 
 
 ## How to get all Invoices
@@ -147,7 +146,6 @@ due_date = 2023-11-20
 
 customer_id = 1
 
-id = 1
 
 
 
